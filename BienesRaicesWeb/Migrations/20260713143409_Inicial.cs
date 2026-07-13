@@ -1,30 +1,33 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-#nullable disable
-
 namespace BienesRaicesWeb.Migrations
 {
-    /// <inheritdoc />
+    /**
+     * @namespace BienesRaicesWeb.Migrations
+     * @brief Módulo que almacena el historial evolutivo y cambios estructurales de la base de datos SQL.
+     */
+
+    /**
+     * @class Inicial
+     * @brief Migración inicial que genera la estructura base del sistema en SQL.
+     * @details Traduce las clases C# en tablas físicas reales dentro del servidor (como la tabla Propiedades).
+     */
     public partial class Inicial : Migration
     {
-        /// <inheritdoc />
+        /**
+         * @brief Operación ascendente (Up). Ejecuta la creación de tablas y restricciones en la base de datos.
+         * @param migrationBuilder Constructor de herramientas de migración de Entity Framework.
+         */
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Propiedades",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Titulo = table.Column<string>(type: "TEXT", nullable: false),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: false),
-                    Precio = table.Column<decimal>(type: "TEXT", nullable: false),
-                    Ubicacion = table.Column<string>(type: "TEXT", nullable: false),
-                    Habitaciones = table.Column<int>(type: "INTEGER", nullable: false),
-                    Banos = table.Column<int>(type: "INTEGER", nullable: false),
-                    MetrosCuadrados = table.Column<int>(type: "INTEGER", nullable: false),
-                    ImagenUrl = table.Column<string>(type: "TEXT", nullable: false),
-                    Tipo = table.Column<string>(type: "TEXT", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Precio = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +35,10 @@ namespace BienesRaicesWeb.Migrations
                 });
         }
 
-        /// <inheritdoc />
+        /**
+         * @brief Operación descendente (Down). Revierte los cambios de esta migración eliminando las estructuras creadas.
+         * @param migrationBuilder Constructor de herramientas de migración de Entity Framework.
+         */
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

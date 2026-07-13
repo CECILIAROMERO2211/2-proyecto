@@ -1,0 +1,47 @@
+\doxysection{Application\+Db\+Context\+Model\+Snapshot.\+cs}
+\hypertarget{_application_db_context_model_snapshot_8cs_source}{}\label{_application_db_context_model_snapshot_8cs_source}\index{Migrations/ApplicationDbContextModelSnapshot.cs@{Migrations/ApplicationDbContextModelSnapshot.cs}}
+\doxymbox{\hyperlink{_application_db_context_model_snapshot_8cs}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Microsoft.EntityFrameworkCore;}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }Microsoft.EntityFrameworkCore.Infrastructure;}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_bienes_raices_web_1_1_data}{BienesRaicesWeb.Data}};}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00009}00009\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_bienes_raices_web_1_1_migrations}{BienesRaicesWeb.Migrations}}}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00016}00016\ \ \ \ \ [DbContext(typeof(ApplicationDbContext))]}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00017}\doxymbox{\hyperlink{class_bienes_raices_web_1_1_migrations_1_1_application_db_context_model_snapshot}{00017}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{partial\ class\ }\doxymbox{\hyperlink{class_bienes_raices_web_1_1_migrations_1_1_application_db_context_model_snapshot}{ApplicationDbContextModelSnapshot}}\ :\ ModelSnapshot}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00023}\doxymbox{\hyperlink{class_bienes_raices_web_1_1_migrations_1_1_application_db_context_model_snapshot_aa2eb42d165e7493d331068887d4b4ad3}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}\ \textcolor{keyword}{override}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_migrations_1_1_application_db_context_model_snapshot_aa2eb42d165e7493d331068887d4b4ad3}{BuildModel}}(ModelBuilder\ modelBuilder)}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00025}00025\ \textcolor{preprocessor}{\#pragma\ warning\ disable\ 612,\ 618}}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ modelBuilder}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .HasAnnotation(\textcolor{stringliteral}{"{}ProductVersion"{}},\ \textcolor{stringliteral}{"{}7.0.0"{}})}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .HasAnnotation(\textcolor{stringliteral}{"{}Relational:MaxIdentifierLength"{}},\ 128);}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ modelBuilder.Entity(\textcolor{stringliteral}{"{}BienesRaicesWeb.Models.Propiedad"{}},\ b\ =>}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b.Property<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"{}Id"{}})}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .ValueGeneratedOnAdd()}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .HasColumnType(\textcolor{stringliteral}{"{}int"{}});}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"{}Id"{}}));}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b.Property<decimal>(\textcolor{stringliteral}{"{}Precio"{}})}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .HasColumnType(\textcolor{stringliteral}{"{}decimal(18,2)"{}});}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b.Property<\textcolor{keywordtype}{string}>(\textcolor{stringliteral}{"{}Titulo"{}})}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .IsRequired()}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .HasColumnType(\textcolor{stringliteral}{"{}nvarchar(max)"{}});}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b.HasKey(\textcolor{stringliteral}{"{}Id"{}});}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b.ToTable(\textcolor{stringliteral}{"{}Propiedades"{}});}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00051}00051\ \textcolor{preprocessor}{\#pragma\ warning\ restore\ 612,\ 618}}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_application_db_context_model_snapshot_8cs_source_l00054}00054\ \}}
+
+\end{DoxyCode}

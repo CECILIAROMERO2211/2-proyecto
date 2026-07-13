@@ -1,0 +1,223 @@
+\doxysection{Referencia de la clase Bienes\+Raices\+Web.\+Controllers.\+Home\+Controller}
+\hypertarget{class_bienes_raices_web_1_1_controllers_1_1_home_controller}{}\label{class_bienes_raices_web_1_1_controllers_1_1_home_controller}\index{BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}}
+
+
+Controlador maestro para la gestión de la navegación pública del sitio web.  
+
+
+Diagrama de herencia de Bienes\+Raices\+Web.\+Controllers.\+Home\+Controller\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bienes_raices_web_1_1_controllers_1_1_home_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+IAction\+Result \doxymbox{\hyperlink{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a2c6315ba9b4b5091aa8c3aaa66c001d0}{Index}} ()
+\begin{DoxyCompactList}\small\item\em Carga la página de inicio (Landing Page). \end{DoxyCompactList}\item 
+IAction\+Result \doxymbox{\hyperlink{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a9067f50c019bcfb2ed1c0ea5d45eda4c}{Nosotros}} ()
+\begin{DoxyCompactList}\small\item\em Muestra la sección institucional "{}\+Sobre Nosotros"{}. \end{DoxyCompactList}\item 
+IAction\+Result \doxymbox{\hyperlink{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a0ef7e7e86c658fa92cb9156096995c58}{Servicios}} ()
+\begin{DoxyCompactList}\small\item\em Despliega el catálogo de soluciones corporativas y servicios comerciales. \end{DoxyCompactList}\item 
+IAction\+Result \doxymbox{\hyperlink{class_bienes_raices_web_1_1_controllers_1_1_home_controller_aeff8ac2176be1428fce742e57b3787f9}{Blog}} ()
+\begin{DoxyCompactList}\small\item\em Muestra el portal de artículos y noticias ("{}\+Horizon Insights"{}). \end{DoxyCompactList}\item 
+IAction\+Result \doxymbox{\hyperlink{class_bienes_raices_web_1_1_controllers_1_1_home_controller_aef599ed3c69ac82b53acb3b89161db13}{Contacto}} ()
+\begin{DoxyCompactList}\small\item\em Renderiza el formulario de contacto y atención al cliente. \end{DoxyCompactList}\item 
+IAction\+Result \doxymbox{\hyperlink{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a4672b54e9125d37ba5c493946ddf1cf5}{Agendar\+Cita}} ()
+\begin{DoxyCompactList}\small\item\em Muestra el módulo interactivo de reserva de citas. \end{DoxyCompactList}\item 
+IAction\+Result \doxymbox{\hyperlink{class_bienes_raices_web_1_1_controllers_1_1_home_controller_ab6399b263c7d50bdfbc8c1a186a53827}{Privacy}} ()
+\begin{DoxyCompactList}\small\item\em Despliega las políticas legales, términos y condiciones del sitio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Controlador maestro para la gestión de la navegación pública del sitio web. 
+
+Se encarga de resolver las peticiones HTTP y renderizar las páginas principales y estáticas de la plataforma Horizon Bienes Raíces. \begin{DoxyAuthor}{Autor}
+Horizon Development Team 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Fecha}
+Julio 2026 
+\end{DoxyDate}
+
+
+Definición en la línea \doxymbox{\hyperlink{_home_controller_8cs_source_l00021}{21}} del archivo \doxymbox{\hyperlink{_home_controller_8cs_source}{Home\+Controller.\+cs}}.
+
+
+
+\label{class_bienes_raices_web_1_1_controllers_1_1_home_controller_doc-func-members}
+\Hypertarget{class_bienes_raices_web_1_1_controllers_1_1_home_controller_doc-func-members}
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a4672b54e9125d37ba5c493946ddf1cf5}\index{BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}!AgendarCita@{AgendarCita}}
+\index{AgendarCita@{AgendarCita}!BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}}
+\doxysubsubsection{\texorpdfstring{AgendarCita()}{AgendarCita()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a4672b54e9125d37ba5c493946ddf1cf5} 
+IAction\+Result Bienes\+Raices\+Web.\+Controllers.\+Home\+Controller.\+Agendar\+Cita (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Muestra el módulo interactivo de reserva de citas. 
+
+Permite a los usuarios agendar un espacio en la agenda cronológica de un asesor inmobiliario. \begin{DoxyReturn}{Devuelve}
+Vista Agendar\+Cita.\+cshtml. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{_home_controller_8cs_source_l00078}{78}} del archivo \doxymbox{\hyperlink{_home_controller_8cs_source}{Home\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ View();}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_bienes_raices_web_1_1_controllers_1_1_home_controller_aeff8ac2176be1428fce742e57b3787f9}\index{BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}!Blog@{Blog}}
+\index{Blog@{Blog}!BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}}
+\doxysubsubsection{\texorpdfstring{Blog()}{Blog()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_controllers_1_1_home_controller_aeff8ac2176be1428fce742e57b3787f9} 
+IAction\+Result Bienes\+Raices\+Web.\+Controllers.\+Home\+Controller.\+Blog (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Muestra el portal de artículos y noticias ("{}\+Horizon Insights"{}). 
+
+Diseñado para captar tráfico mediante posicionamiento orgánico SEO analizando tendencias del mercado. \begin{DoxyReturn}{Devuelve}
+Vista Blog.\+cshtml. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{_home_controller_8cs_source_l00058}{58}} del archivo \doxymbox{\hyperlink{_home_controller_8cs_source}{Home\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ View();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_bienes_raices_web_1_1_controllers_1_1_home_controller_aef599ed3c69ac82b53acb3b89161db13}\index{BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}!Contacto@{Contacto}}
+\index{Contacto@{Contacto}!BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}}
+\doxysubsubsection{\texorpdfstring{Contacto()}{Contacto()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_controllers_1_1_home_controller_aef599ed3c69ac82b53acb3b89161db13} 
+IAction\+Result Bienes\+Raices\+Web.\+Controllers.\+Home\+Controller.\+Contacto (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Renderiza el formulario de contacto y atención al cliente. 
+
+Captura datos clave de clientes potenciales (Leads) para canalizarlos con el equipo de ventas. \begin{DoxyReturn}{Devuelve}
+Vista Contacto.\+cshtml. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{_home_controller_8cs_source_l00068}{68}} del archivo \doxymbox{\hyperlink{_home_controller_8cs_source}{Home\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ View();}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a2c6315ba9b4b5091aa8c3aaa66c001d0}\index{BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}!Index@{Index}}
+\index{Index@{Index}!BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}}
+\doxysubsubsection{\texorpdfstring{Index()}{Index()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a2c6315ba9b4b5091aa8c3aaa66c001d0} 
+IAction\+Result Bienes\+Raices\+Web.\+Controllers.\+Home\+Controller.\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carga la página de inicio (Landing Page). 
+
+Renderiza la vista principal con los banners de presentación y propiedades destacadas. \begin{DoxyReturn}{Devuelve}
+Vista Index.\+cshtml. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{_home_controller_8cs_source_l00028}{28}} del archivo \doxymbox{\hyperlink{_home_controller_8cs_source}{Home\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ View();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a9067f50c019bcfb2ed1c0ea5d45eda4c}\index{BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}!Nosotros@{Nosotros}}
+\index{Nosotros@{Nosotros}!BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}}
+\doxysubsubsection{\texorpdfstring{Nosotros()}{Nosotros()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a9067f50c019bcfb2ed1c0ea5d45eda4c} 
+IAction\+Result Bienes\+Raices\+Web.\+Controllers.\+Home\+Controller.\+Nosotros (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Muestra la sección institucional "{}\+Sobre Nosotros"{}. 
+
+Expone la historia, la misión, la visión y los valores corporativos de la inmobiliaria premium. \begin{DoxyReturn}{Devuelve}
+Vista Nosotros.\+cshtml. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{_home_controller_8cs_source_l00038}{38}} del archivo \doxymbox{\hyperlink{_home_controller_8cs_source}{Home\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ View();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_bienes_raices_web_1_1_controllers_1_1_home_controller_ab6399b263c7d50bdfbc8c1a186a53827}\index{BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}!Privacy@{Privacy}}
+\index{Privacy@{Privacy}!BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}}
+\doxysubsubsection{\texorpdfstring{Privacy()}{Privacy()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_controllers_1_1_home_controller_ab6399b263c7d50bdfbc8c1a186a53827} 
+IAction\+Result Bienes\+Raices\+Web.\+Controllers.\+Home\+Controller.\+Privacy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Despliega las políticas legales, términos y condiciones del sitio. 
+
+Muestra el aviso de privacidad vigente conforme a las normativas de protección de datos. \begin{DoxyReturn}{Devuelve}
+Vista Privacy.\+cshtml. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{_home_controller_8cs_source_l00088}{88}} del archivo \doxymbox{\hyperlink{_home_controller_8cs_source}{Home\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ View();}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a0ef7e7e86c658fa92cb9156096995c58}\index{BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}!Servicios@{Servicios}}
+\index{Servicios@{Servicios}!BienesRaicesWeb.Controllers.HomeController@{BienesRaicesWeb.Controllers.HomeController}}
+\doxysubsubsection{\texorpdfstring{Servicios()}{Servicios()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_controllers_1_1_home_controller_a0ef7e7e86c658fa92cb9156096995c58} 
+IAction\+Result Bienes\+Raices\+Web.\+Controllers.\+Home\+Controller.\+Servicios (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Despliega el catálogo de soluciones corporativas y servicios comerciales. 
+
+Muestra los servicios de brokerage residencial, consultoría de inversiones y asesoría legal. \begin{DoxyReturn}{Devuelve}
+Vista Servicios.\+cshtml. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{_home_controller_8cs_source_l00048}{48}} del archivo \doxymbox{\hyperlink{_home_controller_8cs_source}{Home\+Controller.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ View();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+La documentación de esta clase está generada del siguiente archivo:\+\begin{DoxyCompactItemize}
+\item 
+Controllers/\+\doxymbox{\hyperlink{_home_controller_8cs}{Home\+Controller.\+cs}}\end{DoxyCompactItemize}

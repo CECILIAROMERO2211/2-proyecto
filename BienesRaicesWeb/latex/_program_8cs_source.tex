@@ -1,0 +1,53 @@
+\doxysection{Program.\+cs}
+\hypertarget{_program_8cs_source}{}\label{_program_8cs_source}\doxymbox{\hyperlink{_program_8cs}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }Microsoft.AspNetCore.Builder;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }Microsoft.EntityFrameworkCore;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }Microsoft.Extensions.DependencyInjection;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_bienes_raices_web_1_1_data}{BienesRaicesWeb.Data}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_bienes_raices_web_1_1_services}{BienesRaicesWeb.Services}};}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00007}\doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{00007}}\ var\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}\ =\ WebApplication.CreateBuilder(args);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00009}00009\ \textcolor{comment}{//\ 1.\ Configurar\ la\ conexión\ a\ la\ base\ de\ datos\ SQLite}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00010}\doxymbox{\hyperlink{_program_8cs_a067cdd5f0fed6b2598fae7de8607e7da}{00010}}\ var\ \doxymbox{\hyperlink{_program_8cs_a067cdd5f0fed6b2598fae7de8607e7da}{connectionString}}\ =\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Configuration.GetConnectionString(\textcolor{stringliteral}{"{}DefaultConnection"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00011}\doxymbox{\hyperlink{_program_8cs_a84b927da0128bc222047eef90d2dcea2}{00011}}\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddDbContext<\doxymbox{\hyperlink{class_bienes_raices_web_1_1_data_1_1_application_db_context}{ApplicationDbContext}}>(options\ =>}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00012}00012\ \ \ \ \ options.UseSqlite(\doxymbox{\hyperlink{_program_8cs_a067cdd5f0fed6b2598fae7de8607e7da}{connectionString}}));}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00014}00014\ \textcolor{comment}{//\ 2.\ Agregar\ servicios\ al\ contenedor\ de\ dependencias\ (MVC)}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00015}\doxymbox{\hyperlink{_program_8cs_af8107f2f8ff8e8de22a684c8c8ad3e99}{00015}}\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddControllersWithViews();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00017}00017\ \textcolor{comment}{//\ 3.\ Registro\ de\ tus\ servicios\ y\ repositorios\ genéricos}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00018}\doxymbox{\hyperlink{_program_8cs_aa81f359722ff75fea11f16b6bec7ddf2}{00018}}\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddScoped<\doxymbox{\hyperlink{interface_bienes_raices_web_1_1_services_1_1_i_propiedad_service}{IPropiedadService}},\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service}{PropiedadService}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00019}\doxymbox{\hyperlink{_program_8cs_a61538849493ffd4f0b84df3dba80ae40}{00019}}\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Services.AddScoped(typeof(\doxymbox{\hyperlink{interface_i_repository}{IRepository<>}}),\ typeof(Repository<>));}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00021}\doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{00021}}\ var\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}\ =\ \doxymbox{\hyperlink{_program_8cs_a2f78352277081c620fd4cf92a5ce15e5}{builder}}.Build();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00023}00023\ \textcolor{comment}{//\ 4.\ Bloque\ automático\ para\ sembrar\ los\ 100\ registros\ si\ la\ base\ de\ datos\ está\ vacía}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00024}\doxymbox{\hyperlink{_program_8cs_abb8bee7e5cf24299561d05c0416b62ad}{00024}}\ \textcolor{keyword}{using}\ (var\ \doxymbox{\hyperlink{_program_8cs_abb8bee7e5cf24299561d05c0416b62ad}{scope}}\ =\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.Services.CreateScope())}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00025}00025\ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00026}00026\ \ \ \ \ var\ services\ =\ \doxymbox{\hyperlink{_program_8cs_abb8bee7e5cf24299561d05c0416b62ad}{scope}}.ServiceProvider;}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00027}00027\ \ \ \ \ var\ context\ =\ services.GetRequiredService<\doxymbox{\hyperlink{class_bienes_raices_web_1_1_data_1_1_application_db_context}{ApplicationDbContext}}>();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00028}00028\ \ \ \ \ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_data_1_1_db_initializer}{DbInitializer}}.\doxymbox{\hyperlink{class_bienes_raices_web_1_1_data_1_1_db_initializer_a7d5a9cb767cc2046ef3116bca40fe58b}{Initialize}}(context);}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00031}00031\ \textcolor{comment}{//\ 5.\ Configurar\ el\ pipeline\ de\ solicitudes\ HTTP}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00032}00032\ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.Environment.IsDevelopment())}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00034}00034\ \ \ \ \ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.UseExceptionHandler(\textcolor{stringliteral}{"{}/Home/Error"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00035}00035\ \ \ \ \ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.UseHsts();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00036}00036\ \}}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00038}00038\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.UseHttpsRedirection();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00039}\doxymbox{\hyperlink{_program_8cs_a906a3ce545279a7a73941f1d7b64d7cf}{00039}}\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.UseStaticFiles();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00041}\doxymbox{\hyperlink{_program_8cs_a94c810d266751293a2d511a720a5625f}{00041}}\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.UseRouting();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00042}\doxymbox{\hyperlink{_program_8cs_af6f72d752b2e73aa0292f74bd13237ab}{00042}}\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.UseAuthorization();}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00044}\doxymbox{\hyperlink{_program_8cs_aec500e125fbbfcd3d99a23db7de60be7}{00044}}\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.MapControllerRoute(}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00045}00045\ \ \ \ \ name:\ \textcolor{stringliteral}{"{}default"{}},}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00046}00046\ \ \ \ \ pattern:\ \textcolor{stringliteral}{"{}\{controller=Home\}/\{action=Index\}/\{id?\}"{}});}
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_program_8cs_source_l00048}\doxymbox{\hyperlink{_program_8cs_aaa3dbf02e269c3ef7e8546d290c6b3dd}{00048}}\ \doxymbox{\hyperlink{_program_8cs_a7b225fcb720e4d5ed2bbf60e28a25e6d}{app}}.Run();}
+
+\end{DoxyCode}

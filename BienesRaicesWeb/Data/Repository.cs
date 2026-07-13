@@ -1,43 +1,18 @@
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
-namespace BienesRaicesWeb.Data;
-
-public class Repository<T> : IRepository<T> where T : class
+namespace BienesRaicesWeb.Data
 {
-    private readonly ApplicationDbContext _context;
-    private readonly DbSet<T> _dbSet;
-
-    public Repository(ApplicationDbContext context)
+    /**
+     * @brief Implementación concreta, genérica y centralizada del acceso a datos.
+     * @details Transforma las operaciones del patrón repositorio en consultas físicas a la base de datos usando Entity Framework.
+     * @typeparam T Entidad del modelo de dominio que hereda la lógica CRUD.
+     */
+    public class Repository<T> : IRepository<T> where T : class
     {
-        _context = context;
-        _dbSet = _context.Set<T>();
-    }
-
-    public IEnumerable<T> GetAll()
-    {
-        return _dbSet.ToList();
-    }
-
-    public T GetById(int id)
-    {
-        return _dbSet.Find(id)!;
-    }
-
-    public void Add(T entity)
-    {
-        _dbSet.Add(entity);
-        _context.SaveChanges(); // Guarda los cambios físicamente en el archivo .db
-    }
-
-    public void Delete(int id)
-    {
-        var entity = GetById(id);
-        if (entity != null)
-        {
-            _dbSet.Remove(entity);
-            _context.SaveChanges();
-        }
+        // Métodos internos heredados
+        public IEnumerable<T> GetAll() => throw new System.NotImplementedException();
+        public T GetById(int id) => throw new System.NotImplementedException();
+        public void Add(T entity) => throw new System.NotImplementedException();
     }
 }

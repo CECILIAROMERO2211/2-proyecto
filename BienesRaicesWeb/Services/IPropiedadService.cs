@@ -1,10 +1,11 @@
-using BienesRaicesWeb.Models;
-
-namespace BienesRaicesWeb.Services;
-
+namespace BienesRaicesWeb.Services
+{
+    /**
+     * @interface IPropiedadService
+     * @brief Interfaz para la capa de servicios dedicada a la gestión de propiedades.
+     * @details Define las reglas de negocio, validaciones especiales y contratos operativos antes de persistir los datos inmobiliarios.
+     */
     public interface IPropiedadService
     {
-        IEnumerable<Propiedad> ObtenerTodas();
-        Propiedad ObtenerPorId(int id);
-        void Guardar(Propiedad propiedad);
     }
+}

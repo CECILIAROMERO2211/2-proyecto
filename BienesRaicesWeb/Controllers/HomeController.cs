@@ -1,20 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
 using BienesRaicesWeb.Models;
+/**
+ * @namespace BienesRaicesWeb
+ * @brief Namespace raíz del ecosistema Horizon Bienes Raíces.
+ */
 
+/**
+ * @namespace BienesRaicesWeb.Controllers
+ * @brief Módulo encargado de la capa de presentación y control de flujos HTTP.
+ */
 namespace BienesRaicesWeb.Controllers
 {
     /**
-     * @brief Controlador principal para la gestión de la navegación del sitio web.
-     * @details Esta clase se encarga de manejar las peticiones HTTP para las páginas estáticas 
-     * y secciones principales de la plataforma Horizon Bienes Raíces (Nosotros, Servicios, Blog, etc.).
+     * @class HomeController
+     * @brief Controlador maestro para la gestión de la navegación pública del sitio web.
+     * @details Se encarga de resolver las peticiones HTTP y renderizar las páginas principales y estáticas de la plataforma Horizon Bienes Raíces.
      * @author Horizon Development Team
      * @date Julio 2026
      */
     public class HomeController : Controller
     {
         /**
-         * @brief Muestra la página de inicio (Landing Page).
-         * @return Redirecciona a la vista Index.cshtml del Home.
+         * @brief Carga la página de inicio (Landing Page).
+         * @details Renderiza la vista principal con los banners de presentación y propiedades destacadas.
+         * @return Vista Index.cshtml.
          */
         public IActionResult Index()
         {
@@ -23,8 +32,8 @@ namespace BienesRaicesWeb.Controllers
 
         /**
          * @brief Muestra la sección institucional "Sobre Nosotros".
-         * @details Carga la información de la historia, misión y visión de la inmobiliaria boutique.
-         * @return Redirecciona a la vista Nosotros.cshtml.
+         * @details Expone la historia, la misión, la visión y los valores corporativos de la inmobiliaria premium.
+         * @return Vista Nosotros.cshtml.
          */
         public IActionResult Nosotros()
         {
@@ -32,9 +41,9 @@ namespace BienesRaicesWeb.Controllers
         }
 
         /**
-         * @brief Muestra el catálogo de servicios premium ofrecidos.
-         * @details Detalla las soluciones inmobiliarias como Venta Residencial, Asesoría Legal y Proyectos de Inversión.
-         * @return Redirecciona a la vista Servicios.cshtml.
+         * @brief Despliega el catálogo de soluciones corporativas y servicios comerciales.
+         * @details Muestra los servicios de brokerage residencial, consultoría de inversiones y asesoría legal.
+         * @return Vista Servicios.cshtml.
          */
         public IActionResult Servicios()
         {
@@ -42,9 +51,9 @@ namespace BienesRaicesWeb.Controllers
         }
 
         /**
-         * @brief Muestra el blog de noticias y tendencias ("Horizon Insights").
-         * @details Despliega artículos de interés sobre finanzas, plusvalía y el mercado inmobiliario de lujo.
-         * @return Redirecciona a la vista Blog.cshtml.
+         * @brief Muestra el portal de artículos y noticias ("Horizon Insights").
+         * @details Diseñado para captar tráfico mediante posicionamiento orgánico SEO analizando tendencias del mercado.
+         * @return Vista Blog.cshtml.
          */
         public IActionResult Blog()
         {
@@ -52,9 +61,9 @@ namespace BienesRaicesWeb.Controllers
         }
 
         /**
-         * @brief Muestra el formulario de contacto de la empresa.
-         * @details Permite a los clientes enviar dudas, mensajes y solicitudes generales de información.
-         * @return Redirecciona a la vista Contacto.cshtml con el formulario listo.
+         * @brief Renderiza el formulario de contacto y atención al cliente.
+         * @details Captura datos clave de clientes potenciales (Leads) para canalizarlos con el equipo de ventas.
+         * @return Vista Contacto.cshtml.
          */
         public IActionResult Contacto()
         {
@@ -62,9 +71,9 @@ namespace BienesRaicesWeb.Controllers
         }
 
         /**
-         * @brief Muestra el módulo de reserva y agendamiento de citas.
-         * @details Permite a los usuarios seleccionar fechas, horarios y tipos de asesoría personalizada.
-         * @return Redirecciona a la vista AgendarCita.cshtml.
+         * @brief Muestra el módulo interactivo de reserva de citas.
+         * @details Permite a los usuarios agendar un espacio en la agenda cronológica de un asesor inmobiliario.
+         * @return Vista AgendarCita.cshtml.
          */
         public IActionResult AgendarCita()
         {
@@ -72,8 +81,9 @@ namespace BienesRaicesWeb.Controllers
         }
 
         /**
-         * @brief Muestra la política de privacidad y términos legales del sitio web.
-         * @return Redirecciona a la vista Privacy.cshtml.
+         * @brief Despliega las políticas legales, términos y condiciones del sitio.
+         * @details Muestra el aviso de privacidad vigente conforme a las normativas de protección de datos.
+         * @return Vista Privacy.cshtml.
          */
         public IActionResult Privacy()
         {

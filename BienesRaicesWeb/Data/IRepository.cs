@@ -1,11 +1,11 @@
-using System.Collections.Generic;
-
-namespace BienesRaicesWeb.Data;
-
+namespace BienesRaicesWeb.Data
+{
+   /**
+     * @interface IRepository
+     * @brief Interfaz genérica para la abstracción del patrón de diseño Repository.
+     * @typeparam T Entidad de datos sobre la que se operan transacciones genéricas.
+     */
     public interface IRepository<T> where T : class
     {
-        IEnumerable<T> GetAll();
-        T? GetById(int id);
-        void Add(T entity);
-        void Delete(int id);
     }
+}

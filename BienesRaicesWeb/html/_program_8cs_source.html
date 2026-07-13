@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Horizon Bienes Raíces: Archivo de código fuente Program.cs</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Horizon Bienes Raíces
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_program_8cs_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Program.cs</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_program_8cs.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span>Microsoft.AspNetCore.Builder;</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>Microsoft.EntityFrameworkCore;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using </span>Microsoft.Extensions.DependencyInjection;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">using </span><a class="code hl_namespace" href="namespace_bienes_raices_web_1_1_data.html">BienesRaicesWeb.Data</a>;</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">using </span><a class="code hl_namespace" href="namespace_bienes_raices_web_1_1_services.html">BienesRaicesWeb.Services</a>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">    7</a></span>var <a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a> = WebApplication.CreateBuilder(args);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// 1. Configurar la conexión a la base de datos SQLite</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="_program_8cs.html#a067cdd5f0fed6b2598fae7de8607e7da">   10</a></span>var <a class="code hl_variable" href="_program_8cs.html#a067cdd5f0fed6b2598fae7de8607e7da">connectionString</a> = <a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Configuration.GetConnectionString(<span class="stringliteral">&quot;DefaultConnection&quot;</span>);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="_program_8cs.html#a84b927da0128bc222047eef90d2dcea2">   11</a></span><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddDbContext&lt;<a class="code hl_class" href="class_bienes_raices_web_1_1_data_1_1_application_db_context.html">ApplicationDbContext</a>&gt;(options =&gt;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    options.UseSqlite(<a class="code hl_variable" href="_program_8cs.html#a067cdd5f0fed6b2598fae7de8607e7da">connectionString</a>));</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// 2. Agregar servicios al contenedor de dependencias (MVC)</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="_program_8cs.html#af8107f2f8ff8e8de22a684c8c8ad3e99">   15</a></span><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddControllersWithViews();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// 3. Registro de tus servicios y repositorios genéricos</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_program_8cs.html#aa81f359722ff75fea11f16b6bec7ddf2">   18</a></span><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddScoped&lt;<a class="code hl_interface" href="interface_bienes_raices_web_1_1_services_1_1_i_propiedad_service.html">IPropiedadService</a>, <a class="code hl_class" href="class_bienes_raices_web_1_1_services_1_1_propiedad_service.html">PropiedadService</a>&gt;();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="_program_8cs.html#a61538849493ffd4f0b84df3dba80ae40">   19</a></span><a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Services.AddScoped(typeof(<a class="code hl_interface" href="interface_i_repository.html">IRepository&lt;&gt;</a>), typeof(Repository&lt;&gt;));</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">   21</a></span>var <a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a> = <a class="code hl_variable" href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a>.Build();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// 4. Bloque automático para sembrar los 100 registros si la base de datos está vacía</span></div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="_program_8cs.html#abb8bee7e5cf24299561d05c0416b62ad">   24</a></span><span class="keyword">using</span> (var <a class="code hl_typedef" href="_program_8cs.html#abb8bee7e5cf24299561d05c0416b62ad">scope</a> = <a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.Services.CreateScope())</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    var services = <a class="code hl_typedef" href="_program_8cs.html#abb8bee7e5cf24299561d05c0416b62ad">scope</a>.ServiceProvider;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    var context = services.GetRequiredService&lt;<a class="code hl_class" href="class_bienes_raices_web_1_1_data_1_1_application_db_context.html">ApplicationDbContext</a>&gt;();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="class_bienes_raices_web_1_1_data_1_1_db_initializer.html">DbInitializer</a>.<a class="code hl_function" href="class_bienes_raices_web_1_1_data_1_1_db_initializer.html#a7d5a9cb767cc2046ef3116bca40fe58b">Initialize</a>(context);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// 5. Configurar el pipeline de solicitudes HTTP</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordflow">if</span> (!<a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.Environment.IsDevelopment())</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseExceptionHandler(<span class="stringliteral">&quot;/Home/Error&quot;</span>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseHsts();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseHttpsRedirection();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="_program_8cs.html#a906a3ce545279a7a73941f1d7b64d7cf">   39</a></span><a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseStaticFiles();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="_program_8cs.html#a94c810d266751293a2d511a720a5625f">   41</a></span><a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseRouting();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="_program_8cs.html#af6f72d752b2e73aa0292f74bd13237ab">   42</a></span><a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseAuthorization();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="_program_8cs.html#aec500e125fbbfcd3d99a23db7de60be7">   44</a></span><a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.MapControllerRoute(</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    name: <span class="stringliteral">&quot;default&quot;</span>,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    pattern: <span class="stringliteral">&quot;{controller=Home}/{action=Index}/{id?}&quot;</span>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="_program_8cs.html#aaa3dbf02e269c3ef7e8546d290c6b3dd">   48</a></span><a class="code hl_variable" href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.Run();</div>
+<div class="ttc" id="a_program_8cs_html_a067cdd5f0fed6b2598fae7de8607e7da"><div class="ttname"><a href="_program_8cs.html#a067cdd5f0fed6b2598fae7de8607e7da">connectionString</a></div><div class="ttdeci">var connectionString</div><div class="ttdef"><b>Definition</b> <a href="#l00010">Program.cs:10</a></div></div>
+<div class="ttc" id="a_program_8cs_html_a2f78352277081c620fd4cf92a5ce15e5"><div class="ttname"><a href="_program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5">builder</a></div><div class="ttdeci">var builder</div><div class="ttdef"><b>Definition</b> <a href="#l00007">Program.cs:7</a></div></div>
+<div class="ttc" id="a_program_8cs_html_a7b225fcb720e4d5ed2bbf60e28a25e6d"><div class="ttname"><a href="_program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a></div><div class="ttdeci">var app</div><div class="ttdef"><b>Definition</b> <a href="#l00021">Program.cs:21</a></div></div>
+<div class="ttc" id="a_program_8cs_html_abb8bee7e5cf24299561d05c0416b62ad"><div class="ttname"><a href="_program_8cs.html#abb8bee7e5cf24299561d05c0416b62ad">scope</a></div><div class="ttdeci">app.Services.CreateScope()) { var services=scope.ServiceProvider; var context=services.GetRequiredService&lt; ApplicationDbContext &gt;(); DbInitializer.Initialize(context);} if(!app.Environment.IsDevelopment()) { app.UseExceptionHandler(&quot;/Home/Error&quot;); app.UseHsts();} app.UseHttpsRedirection() scope</div><div class="ttdef"><b>Definition</b> <a href="#l00024">Program.cs:24</a></div></div>
+<div class="ttc" id="aclass_bienes_raices_web_1_1_data_1_1_application_db_context_html"><div class="ttname"><a href="class_bienes_raices_web_1_1_data_1_1_application_db_context.html">BienesRaicesWeb.Data.ApplicationDbContext</a></div><div class="ttdoc">Contexto de Entity Framework Core para el mapeo relacional de la base de datos SQL.</div><div class="ttdef"><b>Definition</b> <a href="_application_db_context_8cs_source.html#l00014">ApplicationDbContext.cs:15</a></div></div>
+<div class="ttc" id="aclass_bienes_raices_web_1_1_data_1_1_db_initializer_html"><div class="ttname"><a href="class_bienes_raices_web_1_1_data_1_1_db_initializer.html">BienesRaicesWeb.Data.DbInitializer</a></div><div class="ttdoc">Inicializador automático encargado de aplicar migraciones y cargar datos semilla.</div><div class="ttdef"><b>Definition</b> <a href="_db_initializer_8cs_source.html#l00008">DbInitializer.cs:9</a></div></div>
+<div class="ttc" id="aclass_bienes_raices_web_1_1_data_1_1_db_initializer_html_a7d5a9cb767cc2046ef3116bca40fe58b"><div class="ttname"><a href="class_bienes_raices_web_1_1_data_1_1_db_initializer.html#a7d5a9cb767cc2046ef3116bca40fe58b">BienesRaicesWeb.Data.DbInitializer.Initialize</a></div><div class="ttdeci">static void Initialize()</div><div class="ttdoc">Ejecuta el proceso de seeding e inicialización estructural.</div><div class="ttdef"><b>Definition</b> <a href="_db_initializer_8cs_source.html#l00013">DbInitializer.cs:13</a></div></div>
+<div class="ttc" id="aclass_bienes_raices_web_1_1_services_1_1_propiedad_service_html"><div class="ttname"><a href="class_bienes_raices_web_1_1_services_1_1_propiedad_service.html">BienesRaicesWeb.Services.PropiedadService</a></div><div class="ttdoc">Implementación concreta de la lógica de negocio para la gestión de inmuebles.</div><div class="ttdef"><b>Definition</b> <a href="_propiedad_service_8cs_source.html#l00012">PropiedadService.cs:13</a></div></div>
+<div class="ttc" id="ainterface_bienes_raices_web_1_1_services_1_1_i_propiedad_service_html"><div class="ttname"><a href="interface_bienes_raices_web_1_1_services_1_1_i_propiedad_service.html">BienesRaicesWeb.Services.IPropiedadService</a></div><div class="ttdoc">Interfaz para la capa de servicios dedicada a la gestión de propiedades.</div><div class="ttdef"><b>Definition</b> <a href="_i_propiedad_service_8cs_source.html#l00008">IPropiedadService.cs:9</a></div></div>
+<div class="ttc" id="ainterface_i_repository_html"><div class="ttname"><a href="interface_i_repository.html">IRepository</a></div><div class="ttdoc">Interfaz genérica para la abstracción del patrón de diseño Repository. @typeparam T Entidad de datos ...</div></div>
+<div class="ttc" id="anamespace_bienes_raices_web_1_1_data_html"><div class="ttname"><a href="namespace_bienes_raices_web_1_1_data.html">BienesRaicesWeb.Data</a></div><div class="ttdoc">Estructura de persistencia, repositorios y comunicación con bases de datos relacionales.</div></div>
+<div class="ttc" id="anamespace_bienes_raices_web_1_1_services_html"><div class="ttname"><a href="namespace_bienes_raices_web_1_1_services.html">BienesRaicesWeb.Services</a></div><div class="ttdef"><b>Definition</b> <a href="_i_propiedad_service_8cs_source.html#l00001">IPropiedadService.cs:2</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="_program_8cs.html">Program.cs</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

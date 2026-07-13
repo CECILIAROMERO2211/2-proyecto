@@ -1,0 +1,177 @@
+\doxysection{Referencia de la clase Bienes\+Raices\+Web.\+Services.\+Propiedad\+Service}
+\hypertarget{class_bienes_raices_web_1_1_services_1_1_propiedad_service}{}\label{class_bienes_raices_web_1_1_services_1_1_propiedad_service}\index{BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}}
+
+
+Implementación concreta de la lógica de negocio para la gestión de inmuebles.  
+
+
+Diagrama de herencia de Bienes\+Raices\+Web.\+Services.\+Propiedad\+Service\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bienes_raices_web_1_1_services_1_1_propiedad_service}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a35a7c8bb1903a4c6a724c730ca01692a}{Propiedad\+Service}} (\doxymbox{\hyperlink{interface_i_repository}{IRepository}}$<$ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}} $>$ repository)
+\begin{DoxyCompactList}\small\item\em Constructor del servicio que inyecta el repositorio de datos. \end{DoxyCompactList}\item 
+IEnumerable$<$ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}} $>$ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_acea2506d5cfd58daf4c06153f7295e92}{Obtener\+Todas}} ()
+\begin{DoxyCompactList}\small\item\em Recupera la lista global de inmuebles del catálogo. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa93b420be5d8586cb3faf42c9eed404b}{Guardar}} (\doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}} propiedad)
+\begin{DoxyCompactList}\small\item\em Registra o añade una nueva propiedad en el inventario. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}} \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a082b4415746e3da93bda8af3d821fc2d}{Obtener\+Por\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Localiza una propiedad específica mediante su clave primaria. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+readonly \doxymbox{\hyperlink{interface_i_repository}{IRepository}}$<$ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}} $>$ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa07290621580034931ba20ac1ea94e7d}{\+\_\+repository}}
+\begin{DoxyCompactList}\small\item\em Referencia interna al repositorio genérico de datos encapsulado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Implementación concreta de la lógica de negocio para la gestión de inmuebles. 
+
+Resuelve las validaciones comerciales, filtros y operaciones operativas del catálogo de propiedades antes de su persistencia. 
+
+Definición en la línea \doxymbox{\hyperlink{_propiedad_service_8cs_source_l00012}{12}} del archivo \doxymbox{\hyperlink{_propiedad_service_8cs_source}{Propiedad\+Service.\+cs}}.
+
+
+
+\label{class_bienes_raices_web_1_1_services_1_1_propiedad_service_doc-constructors}
+\Hypertarget{class_bienes_raices_web_1_1_services_1_1_propiedad_service_doc-constructors}
+\doxysubsection{Documentación de constructores y destructores}
+\Hypertarget{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a35a7c8bb1903a4c6a724c730ca01692a}\index{BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}!PropiedadService@{PropiedadService}}
+\index{PropiedadService@{PropiedadService}!BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}}
+\doxysubsubsection{\texorpdfstring{PropiedadService()}{PropiedadService()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a35a7c8bb1903a4c6a724c730ca01692a} 
+Bienes\+Raices\+Web.\+Services.\+Propiedad\+Service.\+Propiedad\+Service (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{interface_i_repository}{IRepository}}$<$ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}} $>$}]{repository}{}\end{DoxyParamCaption})}
+
+
+
+Constructor del servicio que inyecta el repositorio de datos. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em repository} & Repositorio de la entidad \doxylink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad} para transacciones de almacenamiento. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{_propiedad_service_8cs_source_l00023}{23}} del archivo \doxymbox{\hyperlink{_propiedad_service_8cs_source}{Propiedad\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \_repository\ =\ repository;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\label{class_bienes_raices_web_1_1_services_1_1_propiedad_service_doc-func-members}
+\Hypertarget{class_bienes_raices_web_1_1_services_1_1_propiedad_service_doc-func-members}
+\doxysubsection{Documentación de funciones miembro}
+\Hypertarget{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa93b420be5d8586cb3faf42c9eed404b}\index{BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}!Guardar@{Guardar}}
+\index{Guardar@{Guardar}!BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}}
+\doxysubsubsection{\texorpdfstring{Guardar()}{Guardar()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa93b420be5d8586cb3faf42c9eed404b} 
+void Bienes\+Raices\+Web.\+Services.\+Propiedad\+Service.\+Guardar (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}}}]{propiedad}{}\end{DoxyParamCaption})}
+
+
+
+Registra o añade una nueva propiedad en el inventario. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em propiedad} & Objeto entidad con los datos financieros y catastrales a guardar. \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea \doxymbox{\hyperlink{_propiedad_service_8cs_source_l00041}{41}} del archivo \doxymbox{\hyperlink{_propiedad_service_8cs_source}{Propiedad\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \_repository.Add(propiedad);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a082b4415746e3da93bda8af3d821fc2d}\index{BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}!ObtenerPorId@{ObtenerPorId}}
+\index{ObtenerPorId@{ObtenerPorId}!BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}}
+\doxysubsubsection{\texorpdfstring{ObtenerPorId()}{ObtenerPorId()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a082b4415746e3da93bda8af3d821fc2d} 
+\doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}} Bienes\+Raices\+Web.\+Services.\+Propiedad\+Service.\+Obtener\+Por\+Id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Localiza una propiedad específica mediante su clave primaria. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em id} & Identificador numérico único del inmueble. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+La entidad \doxylink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad} correspondiente o null si no se encuentra. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{_propiedad_service_8cs_source_l00051}{51}} del archivo \doxymbox{\hyperlink{_propiedad_service_8cs_source}{Propiedad\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_repository.GetById(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_bienes_raices_web_1_1_services_1_1_propiedad_service_acea2506d5cfd58daf4c06153f7295e92}\index{BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}!ObtenerTodas@{ObtenerTodas}}
+\index{ObtenerTodas@{ObtenerTodas}!BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}}
+\doxysubsubsection{\texorpdfstring{ObtenerTodas()}{ObtenerTodas()}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_services_1_1_propiedad_service_acea2506d5cfd58daf4c06153f7295e92} 
+IEnumerable$<$ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}} $>$ Bienes\+Raices\+Web.\+Services.\+Propiedad\+Service.\+Obtener\+Todas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Recupera la lista global de inmuebles del catálogo. 
+
+\begin{DoxyReturn}{Devuelve}
+Una colección enumerable con todas las entidades \doxylink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad} registradas. 
+\end{DoxyReturn}
+
+
+Definición en la línea \doxymbox{\hyperlink{_propiedad_service_8cs_source_l00032}{32}} del archivo \doxymbox{\hyperlink{_propiedad_service_8cs_source}{Propiedad\+Service.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_repository.GetAll();\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\label{class_bienes_raices_web_1_1_services_1_1_propiedad_service_doc-variable-members}
+\Hypertarget{class_bienes_raices_web_1_1_services_1_1_propiedad_service_doc-variable-members}
+\doxysubsection{Documentación de datos miembro}
+\Hypertarget{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa07290621580034931ba20ac1ea94e7d}\index{BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}!\_repository@{\_repository}}
+\index{\_repository@{\_repository}!BienesRaicesWeb.Services.PropiedadService@{BienesRaicesWeb.Services.PropiedadService}}
+\doxysubsubsection{\texorpdfstring{\_repository}{\_repository}}
+{\footnotesize\ttfamily \label{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa07290621580034931ba20ac1ea94e7d} 
+readonly \doxymbox{\hyperlink{interface_i_repository}{IRepository}}$<$\doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}}$>$ Bienes\+Raices\+Web.\+Services.\+Propiedad\+Service.\+\_\+repository\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Referencia interna al repositorio genérico de datos encapsulado. 
+
+
+
+Definición en la línea \doxymbox{\hyperlink{_propiedad_service_8cs_source_l00017}{17}} del archivo \doxymbox{\hyperlink{_propiedad_service_8cs_source}{Propiedad\+Service.\+cs}}.
+
+
+
+La documentación de esta clase está generada del siguiente archivo:\+\begin{DoxyCompactItemize}
+\item 
+Services/\+\doxymbox{\hyperlink{_propiedad_service_8cs}{Propiedad\+Service.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,37 @@
+\doxysection{Propiedad\+Service.\+cs}
+\hypertarget{_propiedad_service_8cs_source}{}\label{_propiedad_service_8cs_source}\index{Services/PropiedadService.cs@{Services/PropiedadService.cs}}
+\doxymbox{\hyperlink{_propiedad_service_8cs}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_bienes_raices_web_1_1_data}{BienesRaicesWeb.Data}};}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }\doxymbox{\hyperlink{namespace_bienes_raices_web_1_1_models}{BienesRaicesWeb.Models}};}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00005}00005\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_bienes_raices_web_1_1_services}{BienesRaicesWeb.Services}}}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00012}\doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service}{00012}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a35a7c8bb1903a4c6a724c730ca01692a}{PropiedadService}}\ :\ \doxymbox{\hyperlink{interface_bienes_raices_web_1_1_services_1_1_i_propiedad_service}{IPropiedadService}}}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00013}00013\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00017}\doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa07290621580034931ba20ac1ea94e7d}{00017}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ readonly\ \doxymbox{\hyperlink{interface_i_repository}{IRepository<Propiedad>}}\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa07290621580034931ba20ac1ea94e7d}{\_repository}};}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00023}\doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a35a7c8bb1903a4c6a724c730ca01692a}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a35a7c8bb1903a4c6a724c730ca01692a}{PropiedadService}}(\doxymbox{\hyperlink{interface_i_repository}{IRepository<Propiedad>}}\ repository)}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00024}00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa07290621580034931ba20ac1ea94e7d}{\_repository}}\ =\ repository;}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00032}\doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_acea2506d5cfd58daf4c06153f7295e92}{00032}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ IEnumerable<Propiedad>\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_acea2506d5cfd58daf4c06153f7295e92}{ObtenerTodas}}()}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa07290621580034931ba20ac1ea94e7d}{\_repository}}.GetAll();\ }
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00041}\doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa93b420be5d8586cb3faf42c9eed404b}{00041}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa93b420be5d8586cb3faf42c9eed404b}{Guardar}}(\doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}}\ propiedad)}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa07290621580034931ba20ac1ea94e7d}{\_repository}}.Add(propiedad);}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00051}\doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a082b4415746e3da93bda8af3d821fc2d}{00051}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_models_1_1_propiedad}{Propiedad}}\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_a082b4415746e3da93bda8af3d821fc2d}{ObtenerPorId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_bienes_raices_web_1_1_services_1_1_propiedad_service_aa07290621580034931ba20ac1ea94e7d}{\_repository}}.GetById(\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_propiedad_service_8cs_source_l00056}00056\ \}}
+
+\end{DoxyCode}
