@@ -1,85 +1,389 @@
 @model IEnumerable<BienesRaicesWeb.Models.Propiedad>
+
 @{
-    ViewData["Title"] = "Catálogo de Propiedades";
+    ViewData["Title"] = "Explora Propiedades";
+    string tipoSeleccionado = ViewBag.TipoSeleccionado as string ?? "Todos";
+
+    // 1. LISTA DE VENDEDORES CON DESCRIPCIÓN
+    var vendedores = new[] {
+        new { 
+            Nombre = "Valeria Domínguez", 
+            Foto = "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&q=80", 
+            Descripcion = "Especialista en propiedades residenciales con más de 10 años ayudando a familias.", 
+            Calificacion = "4.95", 
+            Resenas = "128" 
+        },
+        new { 
+            Nombre = "Carlos Mendoza", 
+            Foto = "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&q=80", 
+            Descripcion = "Experto en inversiones y preventas. Te asesoro financieramente para la mejor rentabilidad.", 
+            Calificacion = "4.88", 
+            Resenas = "95" 
+        },
+        new { 
+            Nombre = "Sofía Ríos", 
+            Foto = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&q=80", 
+            Descripcion = "Arquitecta y asesora inmobiliaria. Te ayudo a visualizar el verdadero potencial de cada espacio.", 
+            Calificacion = "5.0", 
+            Resenas = "42" 
+        },
+        new { 
+            Nombre = "Javier Ortiz", 
+            Foto = "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&q=80", 
+            Descripcion = "Conozco cada rincón de la ciudad. Especialista en negociaciones rápidas y efectivas.", 
+            Calificacion = "4.75", 
+            Resenas = "210" 
+        }
+    };
+    
+    // Contador para rotar los vendedores
+    int contadorVendedores = 0;
 }
 
-<div class="text-center mb-5">
-    <h1 class="display-5 fw-bold text-dark">Encuentra tu propiedad ideal</h1>
-    <p class="lead text-muted">Explora nuestro catálogo exclusivo de casas, departamentos y terrenos de lujo.</p>
-</div>
+<style>
+    /* =========================================================
+       TARJETAS DE PROPIEDADES
+    ========================================================= */
+    .property-card { border: none !important; border-radius: 12px; background-color: transparent; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .property-card:hover { transform: translateY(-4px); }
+    .property-img { display: block; width: 100%; height: 280px; object-fit: cover; border-radius: 14px; margin-bottom: 12px; cursor: pointer; transition: transform 0.25s ease, filter 0.25s ease; }
+    .property-img:hover { transform: scale(1.015); filter: brightness(0.92); }
+    .property-image-container { overflow: hidden; border-radius: 14px; }
 
-<div class="card p-4 mb-5 shadow-sm border-0 rounded-3 bg-white">
-    <form asp-controller="Propiedades" asp-action="Index" method="get" class="row g-3 align-items-end">
-        <div class="col-md-5">
-            <label class="form-label fw-semibold">Tipo de Propiedad</label>
-            <select name="tipo" class="form-select">
-                <option value="Todos" selected="@(ViewBag.TipoSeleccionado == "Todos")">Todos</option>
-                <option value="Casa" selected="@(ViewBag.TipoSeleccionado == "Casa")">Casa</option>
-                <option value="Departamento" selected="@(ViewBag.TipoSeleccionado == "Departamento")">Departamento</option>
-                <option value="Terreno" selected="@(ViewBag.TipoSeleccionado == "Terreno")">Terreno</option>
-            </select>
-        </div>
-        <div class="col-md-5">
-            <label class="form-label fw-semibold">Precio Máximo ($ MXN)</label>
-            <input type="number" name="precioMax" class="form-control" placeholder="Ej. 5000000" value="@ViewBag.PrecioMax" />
-        </div>
-        <div class="col-md-2">
-            <button type="submit" class="btn btn-primary w-100 fw-bold"><i class="bi bi-funnel me-1"></i> Filtrar</button>
-        </div>
-    </form>
-</div>
+    /* =========================================================
+       BARRA DE BÚSQUEDA
+    ========================================================= */
+    .search-pill { padding: 10px 20px; background: #ffffff; border: 1px solid #e2e2e2; border-radius: 40px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); }
+    .search-input { border: none !important; background: transparent !important; box-shadow: none !important; font-weight: 500; }
+    .search-label { margin-bottom: 2px; color: #222; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .btn-search { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: none; border-radius: 50%; background-color: #ff385c; color: white; transition: background-color 0.2s ease; }
+    .btn-search:hover { background-color: #d90b3e; color: white; }
 
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger" role="alert">
-        <strong>Error:</strong> @ViewBag.Error
-    </div>
-}
+    /* =========================================================
+       INFORMACIÓN DE LA TARJETA
+    ========================================================= */
+    .card-title-location { margin: 0; color: #222; font-size: 1rem; font-weight: 600; }
+    .card-subtitle-desc { color: #717171; font-size: 0.95rem; }
+    .card-price { margin-top: 6px; color: #222; font-size: 1rem; font-weight: 600; }
+    .heart-btn { border: none; background: transparent; color: rgba(0, 0, 0, 0.5); transition: transform 0.2s ease; z-index: 5; }
+    .heart-btn:hover { transform: scale(1.1); }
+    .heart-btn svg { fill: rgba(0, 0, 0, 0.4); stroke: white; stroke-width: 2; }
 
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    @foreach (var item in Model)
-    {
-        <div class="col">
-            <div class="card card-property h-100 shadow-sm">
-                <div class="position-relative">
-                    <img src="@item.ImagenUrl" class="card-img-top" alt="@item.Titulo" style="height: 220px; object-fit: cover;">
-                    <span class="position-absolute top-0 end-0 m-3 badge badge-type px-3 py-2 rounded-pill fs-6">@item.Tipo</span>
+    /* =========================================================
+       VENTANA EMERGENTE (ESTILO AIRBNB)
+    ========================================================= */
+    .property-modal-content { overflow: hidden; border: none; border-radius: 24px; box-shadow: 0 25px 70px rgba(0, 0, 0, 0.28); }
+    .property-modal-header { padding: 22px 25px 12px; border: none; }
+    .property-modal-body { padding: 15px 25px 28px; }
+    
+    .modal-gallery-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; height: 400px; border-radius: 18px; overflow: hidden; }
+    .modal-main-img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-side-imgs { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; }
+    .modal-side-img { width: 100%; height: 100%; object-fit: cover; }
+
+    .modal-property-type { display: inline-block; padding: 6px 14px; margin-bottom: 10px; border-radius: 999px; background-color: #fff0f3; color: #ff385c; font-size: 0.85rem; font-weight: 700; }
+    .modal-property-title { margin: 0; color: #222; font-size: 1.75rem; font-weight: 800; line-height: 1.25; }
+    .modal-property-location { margin: 5px 0 0; color: #555; font-size: 1.05rem; font-weight: 600; }
+    
+    /* PERFIL DEL VENDEDOR */
+    .seller-profile { display: flex; align-items: flex-start; padding: 24px 0; border-top: 1px solid #ebebeb; border-bottom: 1px solid #ebebeb; margin-top: 16px; margin-bottom: 24px; }
+    .seller-avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin-right: 16px; }
+    .seller-info h4 { margin: 0; font-size: 1.15rem; font-weight: 700; color: #222; }
+    .seller-info p { margin: 4px 0 0; font-size: 0.95rem; color: #717171; line-height: 1.4; }
+    .seller-info .seller-stats-line { margin-top: 8px; font-size: 0.9rem; }
+    .seller-info .stars { color: #222; font-weight: 600; }
+
+    .property-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
+    .property-feature { padding: 15px 10px; border: 1px solid #e5e5e5; border-radius: 14px; background-color: #ffffff; text-align: center; }
+    .property-feature strong { display: block; color: #222; font-size: 1.05rem; }
+    .property-feature span { display: block; margin-top: 4px; color: #777; font-size: 0.8rem; }
+    
+    .modal-price-box { padding: 24px; border-radius: 16px; background-color: #ffffff; border: 1px solid #e2e2e2; box-shadow: 0 6px 16px rgba(0,0,0,0.06); position: sticky; top: 20px; }
+    .modal-price-box span { display: block; color: #707070; font-size: 0.9rem; }
+    .modal-price-box strong { display: block; margin-top: 5px; color: #222; font-size: 1.55rem; }
+    
+    .custom-modal-content { padding: 18px; margin-top: 20px; border-left: 4px solid #ff385c; border-radius: 8px; background-color: #fff8fa; }
+    .custom-modal-content h4 { margin-bottom: 10px; color: #222; font-size: 1.05rem; font-weight: 800; }
+    .custom-modal-content p { margin: 0; color: #555; line-height: 1.65; white-space: pre-line; }
+    
+    .modal-contact-button { width: 100%; padding: 13px; margin-top: 20px; border: none; border-radius: 12px; background-color: #ff385c; color: white; font-weight: 700; transition: background-color 0.2s ease; }
+    .modal-contact-button:hover { background-color: #d90b3e; }
+
+    .modal-map-container { margin-top: 30px; }
+    .modal-map-container h4 { margin-bottom: 15px; font-weight: 800; color: #222; }
+
+    @@media (max-width: 767px) {
+        .search-pill { align-items: stretch !important; border-radius: 24px; }
+        .search-pill .border-end { border-right: none !important; }
+        .property-img { height: 240px; }
+        .modal-gallery-grid { grid-template-columns: 1fr; height: auto; gap: 8px; }
+        .modal-side-imgs { display: flex; gap: 8px; }
+        .modal-side-img { height: 120px; }
+        .property-features { grid-template-columns: 1fr; }
+        .modal-property-title { font-size: 1.4rem; }
+    }
+</style>
+
+<div class="container-fluid px-4 py-4" style="max-width: 1400px;">
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-12 col-md-8 col-lg-6">
+            <form asp-action="Index" method="get" class="search-pill d-flex align-items-center">
+                <div class="flex-grow-1 px-3 border-end">
+                    <label class="search-label">Tipo de propiedad</label>
+                    <select name="tipo" class="form-control search-input px-0">
+                        <option value="Todos" selected="@(tipoSeleccionado == "Todos")">Cualquiera</option>
+                        <option value="Casa" selected="@(tipoSeleccionado == "Casa")">Casas</option>
+                        <option value="Departamento" selected="@(tipoSeleccionado == "Departamento")">Departamentos</option>
+                        <option value="Terreno" selected="@(tipoSeleccionado == "Terreno")">Terrenos</option>
+                    </select>
                 </div>
-                <div class="card-body d-flex flex-column p-4">
-                    <h5 class="card-title fw-bold text-dark">@item.Titulo</h5>
-                    <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i> @item.Ubicacion</p>
-                    <p class="card-text text-secondary mb-4 flex-grow-1">
-                        @if (item.Descripcion.Length > 90)
-                        {
-                            @item.Descripcion.Substring(0, 90)<text>...</text>
-                        }
-                        else
-                        {
-                            @item.Descripcion
-                        }
-                    </p>
-                    
-                    @if (item.Tipo != "Terreno")
-                    {
-                        <div class="d-flex justify-content-between border-top pt-3 mb-3 text-muted small">
-                            <span><i class="bi bi-house-door me-1"></i> @item.Habitaciones Hab.</span>
-                            <span><i class="bi bi-droplet me-1"></i> @item.Banos Baños</span>
-                            <span><i class="bi bi-aspect-ratio me-1"></i> @item.MetrosCuadrados m²</span>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="d-flex justify-content-start border-top pt-3 mb-3 text-muted small">
-                            <span><i class="bi bi-aspect-ratio me-1"></i> Superficie: @item.MetrosCuadrados m²</span>
-                        </div>
-                    }
+                <div class="flex-grow-1 px-3">
+                    <label class="search-label">Presupuesto máximo</label>
+                    <input type="number" name="precioMax" class="form-control search-input px-0" placeholder="Ej. 5000000" value="@ViewBag.PrecioMaximo" />
+                </div>
+                <div class="ps-2">
+                    <button type="submit" class="btn-search shadow-sm" aria-label="Buscar propiedades">
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display:block; fill:none; height:16px; width:16px; stroke:currentColor; stroke-width:4; overflow:visible;">
+                            <path d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9"></path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-                    <div class="d-flex justify-content-between align-items-center mt-auto">
-                        <span class="price-badge">$@item.Precio.ToString("N0")</span>
-                        <a asp-controller="Propiedades" asp-action="Detalle" asp-route-id="@item.Id" class="btn btn-outline-dark fw-semibold">Ver Detalle</a>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+        @foreach (var item in Model)
+        {
+            // 2. SELECCIONAR VENDEDOR DISTINTO PARA CADA TARJETA
+            var vendedorActual = vendedores[contadorVendedores % vendedores.Length];
+            contadorVendedores++;
+
+            <div class="col">
+                <div class="card property-card h-100">
+                    <div class="position-relative property-image-container">
+                        <img src="@Url.Content(item.ImagenUrl)"
+                             class="card-img-top property-img"
+                             alt="@item.Titulo"
+                             role="button"
+                             tabindex="0"
+                             data-bs-toggle="modal"
+                             data-bs-target="#propertyModal"
+                             data-id="@item.Id"
+                             data-title="@item.Titulo"
+                             data-description="@item.Descripcion"
+                             data-type="@item.Tipo"
+                             data-location="@item.Ubicacion"
+                             data-price="@item.Precio.ToString("N2")"
+                             data-image="@Url.Content(item.ImagenUrl)"
+                             data-image2="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" 
+                             data-image3="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+                             data-habitaciones="@item.Habitaciones"
+                             data-banos="@item.Banos"
+                             data-metros="@item.MetrosCuadrados"
+                             data-vendedor-nombre="@vendedorActual.Nombre"
+                             data-vendedor-foto="@vendedorActual.Foto"
+                             data-vendedor-desc="@vendedorActual.Descripcion"
+                             data-vendedor-calif="@vendedorActual.Calificacion"
+                             data-vendedor-resenas="@vendedorActual.Resenas" />
+
+                        <div class="position-absolute top-0 start-0 m-3 badge bg-white text-dark shadow-sm px-2 py-1" style="border-radius: 8px; font-weight: 600;">
+                            @item.Tipo
+                        </div>
+                        <button type="button" class="position-absolute top-0 end-0 m-2 heart-btn p-1" aria-label="Agregar @item.Titulo a favoritos">
+                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display:block; height:24px; width:24px;">
+                                <path d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="card-body p-0">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <h5 class="card-title-location text-truncate">@item.Ubicacion</h5>
+                            <span style="font-size: 0.95rem; white-space: nowrap;">
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display:inline-block; height:12px; width:12px; fill:currentColor; margin-bottom:2px;">
+                                    <path d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"></path>
+                                </svg> @vendedorActual.Calificacion
+                            </span>
+                        </div>
+                        <p class="card-subtitle-desc text-truncate mb-1">@item.Titulo</p>
+                        <p class="card-price mb-0">
+                            @item.Precio.ToString("C2", new System.Globalization.CultureInfo("es-MX"))
+                            <span class="text-muted" style="font-weight: 400;">MXN total</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="modal fade" id="propertyModal" tabindex="-1" aria-labelledby="propertyModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content property-modal-content">
+            <div class="modal-header property-modal-header">
+                <div>
+                    <span id="modalPropertyType" class="modal-property-type">Propiedad</span>
+                    <h2 id="propertyModalTitle" class="modal-property-title">Detalles de la propiedad</h2>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <div class="modal-body property-modal-body">
+                
+                <div class="modal-gallery-grid mb-4">
+                    <img id="modalPropertyImage" src="" class="modal-main-img" alt="Principal" />
+                    <div class="modal-side-imgs">
+                        <img id="modalPropertyImage2" src="" class="modal-side-img" alt="Secundaria 1" />
+                        <img id="modalPropertyImage3" src="" class="modal-side-img" alt="Secundaria 2" />
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-lg-8">
+                        <p id="modalPropertyLocation" class="modal-property-location"></p>
+
+                        <div class="seller-profile">
+                            <img id="modalSellerAvatar" src="" class="seller-avatar" alt="Foto del vendedor">
+                            <div class="seller-info">
+                                <h4 id="modalSellerName">Anfitrión / Agente</h4>
+                                <p id="modalSellerDesc">Descripción del vendedor...</p>
+                                <p class="seller-stats-line">
+                                    <span class="stars" id="modalSellerStars">★ 4.95</span> (<span id="modalSellerReviews">128</span> reseñas)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="property-features">
+                            <div id="featureHabitaciones" class="property-feature">
+                                <strong id="modalHabitaciones">0</strong>
+                                <span>Habitaciones</span>
+                            </div>
+                            <div id="featureBanos" class="property-feature">
+                                <strong id="modalBanos">0</strong>
+                                <span>Baños</span>
+                            </div>
+                            <div id="featureMetros" class="property-feature">
+                                <strong id="modalMetros">0 m²</strong>
+                                <span>Superficie</span>
+                            </div>
+                        </div>
+
+                        <div class="custom-modal-content">
+                            <h4>Descripción de la propiedad</h4>
+                            <p id="modalPropertyDescription"></p>
+                        </div>
+
+                        <div class="modal-map-container">
+                            <h4>Ubicación</h4>
+                            <iframe id="modalMapIframe" 
+                                    width="100%" 
+                                    height="300" 
+                                    style="border:0; border-radius: 12px;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <div class="modal-price-box">
+                            <span>Precio total</span>
+                            <strong id="modalPropertyPrice">$0.00 MXN</strong>
+                            <button type="button" class="modal-contact-button">
+                                Contactar al vendedor
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    }
+    </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const propertyModal = document.getElementById("propertyModal");
+        if (!propertyModal) return;
+
+        propertyModal.addEventListener("show.bs.modal", function (event) {
+            const selectedImage = event.relatedTarget;
+            if (!selectedImage) return;
+
+            // Extraer datos de la propiedad
+            const title = selectedImage.getAttribute("data-title") || "";
+            const description = selectedImage.getAttribute("data-description") || "Sin descripción disponible.";
+            const type = selectedImage.getAttribute("data-type") || "Propiedad";
+            const location = selectedImage.getAttribute("data-location") || "";
+            const price = selectedImage.getAttribute("data-price") || "0.00";
+            
+            // Extraer imágenes
+            const image1 = selectedImage.getAttribute("data-image") || "";
+            const image2 = selectedImage.getAttribute("data-image2") || "";
+            const image3 = selectedImage.getAttribute("data-image3") || "";
+
+            // 4. EXTRAER DATOS COMPLETOS DEL VENDEDOR DESDE EL HTML
+            const sellerName = selectedImage.getAttribute("data-vendedor-nombre") || "Agente Inmobiliario";
+            const sellerPhoto = selectedImage.getAttribute("data-vendedor-foto") || "";
+            const sellerDesc = selectedImage.getAttribute("data-vendedor-desc") || "";
+            const sellerCalif = selectedImage.getAttribute("data-vendedor-calif") || "0.0";
+            const sellerResenas = selectedImage.getAttribute("data-vendedor-resenas") || "0";
+
+            const habitaciones = parseInt(selectedImage.getAttribute("data-habitaciones")) || 0;
+            const banos = parseInt(selectedImage.getAttribute("data-banos")) || 0;
+            const metros = parseInt(selectedImage.getAttribute("data-metros")) || 0;
+
+            // Inyectar Textos Generales
+            document.getElementById("propertyModalTitle").textContent = title;
+            document.getElementById("modalPropertyDescription").textContent = description;
+            document.getElementById("modalPropertyType").textContent = type;
+            document.getElementById("modalPropertyLocation").textContent = location;
+            document.getElementById("modalPropertyPrice").textContent = "$" + price + " MXN";
+
+            // 5. INYECTAR DATOS DEL VENDEDOR
+            document.getElementById("modalSellerName").textContent = "Anfitrión: " + sellerName;
+            document.getElementById("modalSellerAvatar").src = sellerPhoto;
+            document.getElementById("modalSellerDesc").textContent = sellerDesc;
+            document.getElementById("modalSellerStars").textContent = "★ " + sellerCalif;
+            document.getElementById("modalSellerReviews").textContent = sellerResenas;
+
+            // Inyectar Imágenes
+            document.getElementById("modalPropertyImage").src = image1;
+            document.getElementById("modalPropertyImage2").src = image2;
+            document.getElementById("modalPropertyImage3").src = image3;
+
+            // Inyectar Mapa (Corregido para funcionar perfectamente)
+            const mapIframe = document.getElementById("modalMapIframe");
+            const encodedLocation = encodeURIComponent(location + ", México"); 
+            mapIframe.src = `https://maps.google.com/maps?q=${encodedLocation}&output=embed`;
+
+            // Características
+            actualizarCaracteristica("featureHabitaciones", "modalHabitaciones", habitaciones, habitaciones.toString());
+            actualizarCaracteristica("featureBanos", "modalBanos", banos, banos.toString());
+            actualizarCaracteristica("featureMetros", "modalMetros", metros, metros + " m²");
+        });
+
+        function actualizarCaracteristica(containerId, valueId, value, formattedValue) {
+            const container = document.getElementById(containerId);
+            const valueElement = document.getElementById(valueId);
+            if (value > 0) {
+                container.style.display = "block";
+                valueElement.textContent = formattedValue;
+            } else {
+                container.style.display = "none";
+            }
+        }
+
+        /* Permite abrir el modal usando Enter sobre la imagen */
+        document.querySelectorAll(".property-img").forEach(function (image) {
+            image.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    image.click();
+                }
+            });
+        });
+    });
+</script>

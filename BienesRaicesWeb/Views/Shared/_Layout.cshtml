@@ -4,37 +4,200 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Horizon Bienes Raíces</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <!-- Archivos base de Bootstrap y del sitio -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+    <!-- Tipografía Elegante: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+
     <style>
-        body { background-color: #f8f9fa; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .navbar { box-shadow: 0 2px 4px rgba(0,0,0,.08); }
-        .card-property { transition: transform 0.2s, box-shadow 0.2s; border: none; border-radius: 12px; overflow: hidden; }
-        .card-property:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,.12); }
-        .price-badge { background-color: #0d6efd; color: white; font-weight: bold; padding: 0.5rem 1rem; border-radius: 30px; font-size: 1.1rem; }
-        .badge-type { background-color: #e9ecef; color: #495057; font-weight: 600; }
+        /* =========================================================
+           ESTILOS DEL ENCABEZADO "BOUTIQUE"
+        ========================================================= */
+        .navbar-boutique {
+            background-color: #FFFFFF;
+            padding: 20px 0;
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 1px solid #EBE9E1;
+        }
+
+        /* Enlaces de Navegación */
+        .nav-link-custom {
+            color: #1A1A1A !important;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+            padding: 10px 20px !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link-custom:hover {
+            color: #BCAE93 !important; /* Tono Arena/Dorado al pasar el mouse */
+        }
+
+        /* Contenedor del logo centrado de forma absoluta */
+        .logo-center-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1050;
+        }
+
+        /* Estilo del Logo Circular (Idéntico a la referencia) */
+        .brand-logo-circle {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background-color: #0d0d0d;
+            border: 4px solid #EBE9E1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease;
+            overflow: hidden;
+        }
+        
+        .brand-logo-circle:hover {
+            transform: scale(1.03);
+        }
+
+        .brand-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Botón de Acción (Píldora color Arena) */
+        .btn-header-action {
+            background: linear-gradient(135deg, #D4CFC1 0%, #BCAE93 100%);
+            color: #000 !important;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border: none;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-header-action:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Separación de los menús para dejar espacio al logo */
+        .nav-left-half {
+            justify-content: flex-end;
+            padding-right: 80px; 
+        }
+
+        .nav-right-half {
+            justify-content: flex-start;
+            padding-left: 80px; 
+            align-items: center;
+        }
+
+        /* Ajustes para pantallas móviles y tablets */
+        @@media (max-width: 991px) {
+            .logo-center-container {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin: 0 auto;
+            }
+            .nav-left-half { padding-right: 0; justify-content: center; text-align: center; }
+            .nav-right-half { padding-left: 0; justify-content: center; flex-direction: column; text-align: center; gap: 15px; margin-top: 15px;}
+            .navbar-collapse { background: #fff; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-radius: 8px; margin-top: 15px; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
-            <div class="container">
-                <a class="navbar-brand fw-bold fs-4" asp-controller="Propiedades" asp-action="Index">
-                    <i class="bi bi-house-door-fill me-2 text-primary"></i>Horizon Bienes Raíces
+        <nav class="navbar navbar-expand-lg navbar-boutique position-relative">
+            <div class="container-fluid px-4 px-lg-5 position-relative">
+                
+                <!-- Botón de menú para móviles -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBoutique">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- LOGO CENTRADO (ESCRITORIO) -->
+                <a class="navbar-brand logo-center-container d-none d-lg-block" asp-area="" asp-controller="Home" asp-action="Index">
+                    <div class="brand-logo-circle">
+                        <!-- Carga aquí tu nuevo logo en PNG -->
+                        <img src="~/images/logo-horizon.png" alt="Horizon Bienes Raíces" class="brand-logo-img" 
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:#BCAE93; font-family: Playfair Display, serif; font-size: 2.8rem; font-style: italic;\'>HB</span>';" />
+                    </div>
                 </a>
+
+                <div class="collapse navbar-collapse w-100" id="navbarBoutique">
+                    
+                    <!-- LOGO (MÓVIL) -->
+                    <div class="d-block d-lg-none text-center mb-4 mt-2">
+                        <div class="brand-logo-circle mx-auto" style="width: 80px; height: 80px;">
+                            <img src="~/images/logo-horizon.png" alt="Horizon Bienes Raíces" class="brand-logo-img" 
+                                 onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:#BCAE93; font-family: Playfair Display, serif; font-size: 2rem; font-style: italic;\'>HB</span>';" />
+                        </div>
+                    </div>
+
+                    <!-- MITAD IZQUIERDA: Enlaces de Navegación -->
+                    <ul class="navbar-nav w-50 nav-left-half">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" asp-area="" asp-controller="Propiedades" asp-action="Index">PROPIEDADES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#">NOSOTROS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#">SERVICIOS</a>
+                        </li>
+                    </ul>
+
+                    <!-- MITAD DERECHA: Enlaces y Botón -->
+                    <ul class="navbar-nav w-50 nav-right-half">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#">BLOG</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom me-lg-4" href="#">CONTACTO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn-header-action" href="#">AGENDAR CITA</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
-    <div class="container my-5">
+
+    <!-- CUERPO PRINCIPAL DEL SITIO -->
+    <div class="container-fluid p-0">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <footer class="bg-dark text-muted py-4 mt-5 text-center">
+
+    <!-- PIE DE PÁGINA MINIMALISTA -->
+    <footer class="border-top footer text-muted text-center py-5 mt-5" style="background-color: #FAFAFA; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 1px;">
         <div class="container">
-            <small>&copy; 2026 - Horizon Bienes Raíces - Arquitectura MVC & Capas en .NET Core</small>
+            &copy; 2026 - Horizon Bienes Raíces - <a asp-area="" asp-controller="Home" asp-action="Privacy" style="color: #BCAE93; text-decoration: none; font-weight: 600;">Privacidad y Términos</a>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

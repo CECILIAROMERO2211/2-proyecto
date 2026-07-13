@@ -1,8 +1,223 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    /* SECCIÓN PRINCIPAL CON IMAGEN GIGANTE */
+    .hero-section {
+        /* Puse una imagen de una casa bonita como ejemplo, puedes cambiar la URL */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 5rem;
+        font-style: italic;
+        margin-bottom: 10px;
+        font-weight: 400;
+    }
+
+    .hero-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+    }
+
+    /* BARRA DE BÚSQUEDA FLOTANTE (ESTILO CHECK-IN) */
+    .search-booking-bar {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 20px 40px;
+        border-radius: 10px;
+        display: flex;
+        gap: 20px;
+        align-items: flex-end;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .search-booking-bar label {
+        display: block;
+        color: #555;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+    }
+
+    .search-booking-bar input, .search-booking-bar select {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background: transparent;
+        padding: 5px 0;
+        border-radius: 0;
+        font-size: 1rem;
+        color: #222;
+        width: 200px;
+    }
+
+    .search-booking-bar input:focus, .search-booking-bar select:focus {
+        outline: none;
+        border-bottom: 2px solid var(--accent-gold);
+    }
+
+    /* SECCIÓN DE TEXTO ELEGANTE */
+    .intro-section {
+        padding: 80px 20px;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .intro-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        font-style: italic;
+        margin-bottom: 25px;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    /* SECCIÓN DE TARJETAS (BENEFICIOS) */
+    .benefits-title {
+        text-align: center;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #777;
+    }
+    
+    .benefits-subtitle {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-style: italic;
+        margin-bottom: 40px;
+    }
+
+    .benefit-card {
+        background-color: var(--accent-gold);
+        padding: 40px 20px;
+        border-radius: 4px;
+        text-align: center;
+        height: 100%;
+        color: var(--text-dark);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .benefit-card h4 {
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .benefit-card p {
+        font-size: 0.95rem;
+        margin: 0;
+        opacity: 0.8;
+    }
+
+    .benefit-img-card {
+        background-size: cover;
+        background-position: center;
+        border-radius: 4px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 20px;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<!-- 1. HERO SECTION -->
+<div class="hero-section container-fluid px-0">
+    <h1 class="hero-title">Horizon Bienes Raíces</h1>
+    <p class="hero-subtitle">Donde la exclusividad y el diseño redefinen tu hogar</p>
+
+    <!-- Barra simulando el "Reserva Ahora" de tu foto -->
+    <div class="search-booking-bar">
+        <div>
+            <label>Ubicación:</label>
+            <input type="text" placeholder="Ej. Querétaro" />
+        </div>
+        <div>
+            <label>Tipo:</label>
+            <select>
+                <option>Casa</option>
+                <option>Departamento</option>
+            </select>
+        </div>
+        <a asp-controller="Propiedades" asp-action="Index" class="btn btn-accent px-4 py-2" style="border-radius: 0;">Buscar ahora</a>
+    </div>
+</div>
+
+<!-- 2. TEXTO DESCRIPTIVO CENTRAL -->
+<div class="container intro-section">
+    <h2 class="intro-title">Santuario Horizon</h2>
+    <p class="intro-text">
+        Ubicado en las zonas más exclusivas de la ciudad, Horizon Bienes Raíces es una agencia acogedora que ofrece un catálogo lleno de confort, privacidad y relajación. Diseñado en armonía con tus necesidades de vida, nuestro equipo brinda una experiencia única en la búsqueda de tu próximo hogar. Nos enorgullece ofrecer una atmósfera donde cada detalle está cuidadosamente pensado.
+    </p>
+    <button class="btn btn-dark" style="border-radius: 30px; padding: 10px 30px;">MÁS INFORMACIÓN</button>
+</div>
+
+<!-- 3. TARJETAS DE BENEFICIOS (ESTILO "POR QUÉ ELEGIRNOS") -->
+<div class="container mb-5">
+    <p class="benefits-title">Encuentra tu hogar en esta web</p>
+    <h3 class="benefits-subtitle">¿Por qué elegir nuestra agencia?</h3>
+
+    <div class="row g-4">
+        <!-- Tarjeta Beige Oscuro -->
+        <div class="col-md-6 col-lg-3">
+            <div class="benefit-card">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <h4>Ubicación Única</h4>
+                <p>Las zonas más exclusivas y seguras de la ciudad.</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta con Imagen de Fondo -->
+        <div class="col-md-6 col-lg-3">
+            <div class="benefit-img-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80');">
+                <h4 style="font-size: 1.1rem; margin-bottom:5px;">Privacidad y Descanso</h4>
+                <p style="font-size: 0.9rem; opacity:0.9; margin:0;">Un refugio diseñado para tu paz.</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta con Imagen de Fondo -->
+        <div class="col-md-6 col-lg-3">
+            <div class="benefit-img-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80');">
+                <h4 style="font-size: 1.1rem; margin-bottom:5px;">Diseño en Armonía</h4>
+                <p style="font-size: 0.9rem; opacity:0.9; margin:0;">Integrados con tu estilo de vida.</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta Beige Oscuro -->
+        <div class="col-md-6 col-lg-3">
+            <div class="benefit-card">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <h4>Experiencia Boutique</h4>
+                <p>Elegancia y confort en cada recorrido.</p>
+            </div>
+        </div>
+    </div>
 </div>

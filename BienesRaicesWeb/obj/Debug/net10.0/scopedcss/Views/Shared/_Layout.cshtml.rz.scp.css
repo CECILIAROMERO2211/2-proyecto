@@ -1,0 +1,25 @@
+<!-- MITAD IZQUIERDA: Enlaces de Navegación -->
+<ul class="navbar-nav w-50 nav-left-half">
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom" asp-area="" asp-controller="Propiedades" asp-action="Index">PROPIEDADES</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom" asp-area="" asp-controller="Home" asp-action="Nosotros">NOSOTROS</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom" asp-area="" asp-controller="Home" asp-action="Servicios">SERVICIOS</a>
+    </li>
+</ul>
+
+<!-- MITAD DERECHA: Enlaces y Botón -->
+<ul class="navbar-nav w-50 nav-right-half">
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom" asp-area="" asp-controller="Home" asp-action="Blog">BLOG</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link nav-link-custom me-lg-4" asp-area="" asp-controller="Home" asp-action="Contacto">CONTACTO</a>
+    </li>
+    <li class="nav-item">
+        <a class="btn-header-action" asp-area="" asp-controller="Home" asp-action="AgendarCita">AGENDAR CITA</a>
+    </li>
+</ul[b-vkxinqg098]>

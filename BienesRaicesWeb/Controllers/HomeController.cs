@@ -1,24 +1,48 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using BienesRaicesWeb.Models;
+using BienesRaicesWeb.Models; // Asegúrate de que este namespace coincida con tu proyecto
 
-namespace BienesRaicesWeb.Controllers;
-
-public class HomeController : Controller
+namespace BienesRaicesWeb.Controllers
 {
-    public IActionResult Index()
+    public class HomeController : Controller
     {
-        return View();
-    }
+        // Método principal que ya tenías
+        public IActionResult Index()
+        {
+            return View();
+        }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+        // ==========================================
+        // NUEVAS RUTAS DE NAVEGACIÓN (DENTRO DE LA CLASE)
+        // ==========================================
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        public IActionResult Nosotros()
+        {
+            return View();
+        }
+
+        public IActionResult Servicios()
+        {
+            return View();
+        }
+
+        public IActionResult Blog()
+        {
+            return View();
+        }
+
+        public IActionResult Contacto()
+        {
+            return View();
+        }
+
+        public IActionResult AgendarCita()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Agendar Cita";
+}
+
+<div class="container py-5" style="margin-top: 130px; font-family: 'Montserrat', sans-serif;">
+    <div class="text-center mb-5">
+        <h1 style="font-family: 'Playfair Display', serif; color: #1A1A1A; font-size: 2.8rem;">Agendar una Cita</h1>
+        <p class="text-muted mt-3">Selecciona el espacio que mejor se adapte a tu agenda para una asesoría exclusiva.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 card border-0 p-4 p-md-5" style="background-color: #FAFAFA; border-radius: 16px; box-shadow: 0 4px 30px rgba(0,0,0,0.02);">
+            <form>
+                <div class="mb-3">
+                    <label class="form-label text-uppercase small" style="letter-spacing: 1px; font-weight: 500;">¿Qué tipo de asesoría necesitas?</label>
+                    <select class="form-select border-0 bg-white p-3" style="border-radius: 8px;">
+                        <option>Quiero comprar una propiedad</option>
+                        <option>Quiero vender una propiedad</option>
+                        <option>Consultoría de inversión patrimonial</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-uppercase small" style="letter-spacing: 1px; font-weight: 500;">Fecha Preferida</label>
+                        <input type="date" class="form-control border-0 bg-white p-3" style="border-radius: 8px;">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label text-uppercase small" style="letter-spacing: 1px; font-weight: 500;">Horario</label>
+                        <input type="time" class="form-control border-0 bg-white p-3" style="border-radius: 8px;">
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button type="button" class="w-100 p-3 text-uppercase text-dark" style="background: linear-gradient(135deg, #D4CFC1 0%, #BCAE93 100%); border: none; border-radius: 30px; font-size: 0.85rem; letter-spacing: 2px; font-weight: 600;">Confirmar Solicitud de Cita</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

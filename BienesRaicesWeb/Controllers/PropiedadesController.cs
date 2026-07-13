@@ -1,52 +1,40 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using BienesRaicesWeb.Services;
-using BienesRaicesWeb.Models;
+using System.Linq;
 
-namespace BienesRaicesWeb.Controllers
+namespace BienesRaicesWeb.Controllers;
+
+public class PropiedadesController : Controller
 {
-    public class PropiedadesController : Controller
+    private readonly IPropiedadService _propiedadService;
+
+    public PropiedadesController(IPropiedadService propiedadService)
     {
-        private readonly IPropiedadService _propiedadService;
+        _propiedadService = propiedadService;
+    }
 
-        public PropiedadesController(IPropiedadService propiedadService)
+    // Modificamos el método para que acepte los filtros del formulario web
+    public IActionResult Index(string tipo, decimal? precioMax)
+    {
+        // 1. Traer todos los registros de la base de datos
+        var propiedades = _propiedadService.ObtenerTodas();
+
+        // 2. Filtrar por tipo (si seleccionan algo distinto a "Todos")
+        if (!string.IsNullOrEmpty(tipo) && tipo != "Todos")
         {
-            _propiedadService = propiedadService;
+            propiedades = propiedades.Where(p => p.Tipo == tipo);
         }
 
-        public IActionResult Index(string? tipo, decimal? precioMax)
+        // 3. Filtrar por precio máximo si el usuario escribió un número
+        if (precioMax.HasValue)
         {
-            try
-            {
-                ViewBag.TipoSeleccionado = tipo ?? "Todos";
-                ViewBag.PrecioMax = precioMax;
-                
-                var propiedades = _propiedadService.ObtenerTodas(tipo, precioMax);
-                return View(propiedades);
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Error = ex.Message;
-                return View(new List<Propiedad>());
-            }
+            propiedades = propiedades.Where(p => p.Precio <= precioMax.Value);
         }
 
-        public IActionResult Detalle(int id)
-        {
-            try
-            {
-                var propiedad = _propiedadService.ObtenerPorId(id);
-                return View(propiedad);
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Ocurrió un error: {ex.Message}");
-            }
-        }
+        // Guardamos los valores para que no se borren de las cajitas al presionar "Filtrar"
+        ViewBag.TipoSeleccionado = tipo;
+        ViewBag.PrecioMaximo = precioMax;
+
+        return View(propiedades.ToList());
     }
 }
