@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using BienesRaicesWeb.Data;
 
+/**
+ * @namespace BienesRaicesWeb.Migrations
+ * @brief Módulo que almacena el historial evolutivo y cambios estructurales de la base de datos SQL.
+ */
 namespace BienesRaicesWeb.Migrations
 {
     /**
