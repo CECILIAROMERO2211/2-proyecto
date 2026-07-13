@@ -29,7 +29,7 @@ namespace BienesRaicesWeb.Migrations
                 .HasAnnotation("ProductVersion", "7.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+           
 
             modelBuilder.Entity("BienesRaicesWeb.Models.Propiedad", b =>
                 {
@@ -37,7 +37,7 @@ namespace BienesRaicesWeb.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    
 
                     b.Property<decimal>("Precio")
                         .HasColumnType("decimal(18,2)");
