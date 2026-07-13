@@ -24,12 +24,17 @@
 */
 var NAVTREE =
 [
-  [ "My Project", "index.html", ]
+  [ "Horizon Bienes Raíces", "index.html", [
+    [ "Horizon Bienes Raíces - Documentación Técnica", "index.html", null ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"_main_doc_8cs.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';
