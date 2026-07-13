@@ -1,0 +1,85 @@
+@model IEnumerable<BienesRaicesWeb.Models.Propiedad>
+@{
+    ViewData["Title"] = "Catálogo de Propiedades";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-5 fw-bold text-dark">Encuentra tu propiedad ideal</h1>
+    <p class="lead text-muted">Explora nuestro catálogo exclusivo de casas, departamentos y terrenos de lujo.</p>
+</div>
+
+<div class="card p-4 mb-5 shadow-sm border-0 rounded-3 bg-white">
+    <form asp-controller="Propiedades" asp-action="Index" method="get" class="row g-3 align-items-end">
+        <div class="col-md-5">
+            <label class="form-label fw-semibold">Tipo de Propiedad</label>
+            <select name="tipo" class="form-select">
+                <option value="Todos" selected="@(ViewBag.TipoSeleccionado == "Todos")">Todos</option>
+                <option value="Casa" selected="@(ViewBag.TipoSeleccionado == "Casa")">Casa</option>
+                <option value="Departamento" selected="@(ViewBag.TipoSeleccionado == "Departamento")">Departamento</option>
+                <option value="Terreno" selected="@(ViewBag.TipoSeleccionado == "Terreno")">Terreno</option>
+            </select>
+        </div>
+        <div class="col-md-5">
+            <label class="form-label fw-semibold">Precio Máximo ($ MXN)</label>
+            <input type="number" name="precioMax" class="form-control" placeholder="Ej. 5000000" value="@ViewBag.PrecioMax" />
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100 fw-bold"><i class="bi bi-funnel me-1"></i> Filtrar</button>
+        </div>
+    </form>
+</div>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>Error:</strong> @ViewBag.Error
+    </div>
+}
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card card-property h-100 shadow-sm">
+                <div class="position-relative">
+                    <img src="@item.ImagenUrl" class="card-img-top" alt="@item.Titulo" style="height: 220px; object-fit: cover;">
+                    <span class="position-absolute top-0 end-0 m-3 badge badge-type px-3 py-2 rounded-pill fs-6">@item.Tipo</span>
+                </div>
+                <div class="card-body d-flex flex-column p-4">
+                    <h5 class="card-title fw-bold text-dark">@item.Titulo</h5>
+                    <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i> @item.Ubicacion</p>
+                    <p class="card-text text-secondary mb-4 flex-grow-1">
+                        @if (item.Descripcion.Length > 90)
+                        {
+                            @item.Descripcion.Substring(0, 90)<text>...</text>
+                        }
+                        else
+                        {
+                            @item.Descripcion
+                        }
+                    </p>
+                    
+                    @if (item.Tipo != "Terreno")
+                    {
+                        <div class="d-flex justify-content-between border-top pt-3 mb-3 text-muted small">
+                            <span><i class="bi bi-house-door me-1"></i> @item.Habitaciones Hab.</span>
+                            <span><i class="bi bi-droplet me-1"></i> @item.Banos Baños</span>
+                            <span><i class="bi bi-aspect-ratio me-1"></i> @item.MetrosCuadrados m²</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="d-flex justify-content-start border-top pt-3 mb-3 text-muted small">
+                            <span><i class="bi bi-aspect-ratio me-1"></i> Superficie: @item.MetrosCuadrados m²</span>
+                        </div>
+                    }
+
+                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                        <span class="price-badge">$@item.Precio.ToString("N0")</span>
+                        <a asp-controller="Propiedades" asp-action="Detalle" asp-route-id="@item.Id" class="btn btn-outline-dark fw-semibold">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
