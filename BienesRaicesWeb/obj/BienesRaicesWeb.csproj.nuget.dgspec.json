@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ceciliaromerogranados/Downloads/2 PROYECTO/BienesRaicesWeb/BienesRaicesWeb.csproj": {}
+    "/Users/ceciliaromerogranados/Downloads/2 PROYECTO 2/BienesRaicesWeb/BienesRaicesWeb.csproj": {}
   },
   "projects": {
-    "/Users/ceciliaromerogranados/Downloads/2 PROYECTO/BienesRaicesWeb/BienesRaicesWeb.csproj": {
+    "/Users/ceciliaromerogranados/Downloads/2 PROYECTO 2/BienesRaicesWeb/BienesRaicesWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ceciliaromerogranados/Downloads/2 PROYECTO/BienesRaicesWeb/BienesRaicesWeb.csproj",
+        "projectUniqueName": "/Users/ceciliaromerogranados/Downloads/2 PROYECTO 2/BienesRaicesWeb/BienesRaicesWeb.csproj",
         "projectName": "BienesRaicesWeb",
-        "projectPath": "/Users/ceciliaromerogranados/Downloads/2 PROYECTO/BienesRaicesWeb/BienesRaicesWeb.csproj",
+        "projectPath": "/Users/ceciliaromerogranados/Downloads/2 PROYECTO 2/BienesRaicesWeb/BienesRaicesWeb.csproj",
         "packagesPath": "/Users/ceciliaromerogranados/.nuget/packages/",
-        "outputPath": "/Users/ceciliaromerogranados/Downloads/2 PROYECTO/BienesRaicesWeb/obj/",
+        "outputPath": "/Users/ceciliaromerogranados/Downloads/2 PROYECTO 2/BienesRaicesWeb/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ceciliaromerogranados/.nuget/NuGet/NuGet.Config"
