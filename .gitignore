@@ -1,0 +1,15 @@
+
+# Archivos del sistema
+.DS_Store
+
+# Compilación de ASP.NET Core
+BienesRaicesWeb/bin/
+BienesRaicesWeb/obj/
+
+# Salidas originales de Doxygen
+BienesRaicesWeb/html/
+BienesRaicesWeb/latex/
+
+# Archivos temporales
+error.txt
+doxygen-warnings.log
